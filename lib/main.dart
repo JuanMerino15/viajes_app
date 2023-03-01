@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:viajes_app/screens/description_place_screen.dart';
+import 'package:viajes_app/screens/gradient._back.dart';
 import 'package:viajes_app/screens/reviews.dart';
 
 void main() {
@@ -16,13 +17,29 @@ class MainApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        /*body: DescriptionPlaceScreen(descriptionPlace: descriptionText, namePlace: namePlace, stars: 4,),
-        */
-        body: Reviews(),
+       
+        body: Stack(
+          children: [
+            ListView(
+              children: [
+                DescriptionPlaceScreen(
+                  descriptionPlace: 
+                  descriptionText,
+                   namePlace: namePlace, 
+                   stars: 4,
+                   ),
+                const Reviews(),
+              ],
+            ),
+            const GradientBack(),
+          ],
+        ),
+        
       ),
+       
     );
   }
 }
